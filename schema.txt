@@ -1,0 +1,21 @@
+Sơ đồ dữ liệu Vietherb (Chi tiết class )
+
+1. metabolite (Chất hóa học)
+   ├── functional_groups (Nhóm chức)
+   └── phytochemical_classification (Phân loại hóa thực vật)
+
+2. effect (Tác dụng)
+   ├── biological (Tác dụng sinh học)
+   ├── therapeutic (Tác dụng trị liệu)
+   ├── nontherapeutic (Không trị liệu)
+   └── toxical/tumorigenetic/disease-causing (Độc tính / Gây bệnh)
+
+3. plantae_family (Họ thực vật)
+   └── acanthaceae, achariaceae... (Các họ cây)
+
+4. distribution (Phân bố)
+   └── asia_continent, africa_continent... (Các châu lục/vị trí)
+
+5. morphology (Hình thái thực vật)
+
+6. fungi_kingdom (Giới nấm)
