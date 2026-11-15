@@ -1,0 +1,42 @@
+{
+  "sourceSha256": "2f7083f9fc1758edfadd45bf3b721661c585f1c2d3c750d509d94af78976aa73",
+  "byteCount": 420694,
+  "path": "D:\\vietherb_rag\\VHO.owl",
+  "effectiveBaseIRI": "file:///D:/vietherb_rag/VHO.owl",
+  "format": "xml",
+  "parserPolicy": "rdfxml-no-normalize-no-imports-v1",
+  "mappingVersion": "term-v1/triple-v1",
+  "graphScope": "default",
+  "normalization": false,
+  "inference": false,
+  "importsFetched": false,
+  "snapshotKey": "e8dda94cf2e78dcc52b23c832758a2c950f2929b10d6c739465900eb8681014d",
+  "createdUtc": "2026-11-15T10:33:23.528246+00:00",
+  "versions": {
+    "python": "3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]",
+    "rdflib": "7.6.0",
+    "neo4jDriver": "6.4.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "server": "not_measured"
+  },
+  "gitHead": "ea3201e4009f83420bf522e3a9f323ce3d89cfed",
+  "gitDirty": true,
+  "codeHashes": {
+    "src\\vietherb_ontology\\__init__.py": "9aa343d3a3fee7995eccd7de11c18e08ccdb98a1629672b2813a0dbeae1827af",
+    "src\\vietherb_ontology\\dry_run.py": "3ace80793d5ca6e473a5fe6bcd32dd681ea8a8bd33c7b646a4fedae7cca8c5a2",
+    "src\\vietherb_ontology\\inventory.py": "a36bc7773eecf42a81c9e8ebe1ffb3f5b155b44a68a885dac7e4396100030680",
+    "src\\vietherb_ontology\\neo4j_io.py": "89c69a246d4d5d0628b1cbd527a84c9a05b05700b1fd6981708f30e231e0504d",
+    "src\\vietherb_ontology\\pipeline.py": "61da57fccc0dfce169017b9e0a571abfeadd9e702ba845d08a3a2c0727b12a05",
+    "tests\\test_inventory.py": "ad3c811e4ae481b86efd946a351453035fc5cb3b8a1b94fab9856a996253867e",
+    "tests\\test_pipeline.py": "a586b1286452946dbf5714b2b8d9a27b7f3f0ce00c79e15c0422e08ab25884c5"
+  },
+  "settings": {
+    "maxRows": 500,
+    "maxBytes": 4194304,
+    "databaseOperations": false
+  },
+  "batches": {
+    "terms": 3,
+    "triples": 6
+  }
+}

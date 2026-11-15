@@ -1,0 +1,133 @@
+# VIETHERB GRAPHRAG — HANDOFF
+
+**Ngày cập nhật:** 2026-11-15  
+**Project:** `D:\vietherb_rag`  
+**Milestone:** OWL/RDF Analysis → Neo4j Knowledge Graph
+
+## 1. Môi trường phát triển — VERIFIED
+
+| Thành phần | Trạng thái |
+|---|---|
+| Windows 11 | OK |
+| Python 3.15.2 | OK |
+| Virtual environment | Hoạt động |
+| RDFLib 7.6.0 | Đã cài, parse thành công |
+| Neo4j Python Driver 6.4.1 | Kết nối thành công |
+| Git branch | `main` |
+| Git remote | `origin/main` |
+| Project directory | `D:\vietherb_rag` |
+| Ontology file | `D:\vietherb_rag\VHO.owl` |
+
+Đã xử lý lỗi Git `dubious ownership` sau khi reset Windows.
+
+Tại lần kiểm tra Git gần nhất, có các file/thư mục untracked: `AGENTS.md`, `VHO.owl`, `docs/`.
+
+## 2. Neo4j Desktop — VERIFIED
+
+| Thành phần | Giá trị |
+|---|---|
+| Neo4j Desktop | 2.3.1 |
+| DBMS Instance | `VietherbDB` |
+| Neo4j Database | 2026.10.2 Enterprise |
+| Project | `Vietherb` |
+| Database | `neo4j` |
+| Database status | ONLINE |
+| Username | `neo4j` |
+| Bolt URI | `bolt://127.0.0.1:7687` |
+| Data path | `D:\Neo4jData` |
+
+Đã thiết lập biến môi trường User:
+
+`NEO4J_DESKTOP_DATA_PATH=D:\Neo4jData`
+
+### Kiểm tra kết nối
+
+Python Neo4j Driver đã thực hiện thành công:
+
+```python
+driver.verify_connectivity()
+driver.execute_query("RETURN 1 AS test", database_="neo4j")
+```
+
+Kết quả:
+
+```text
+Connection: SUCCESS
+Query result: 1
+```
+
+Chưa thực hiện import ontology vào Neo4j trong quy trình kiểm tra này.
+
+## 3. Phân tích VHO.owl — VERIFIED
+
+### 3.1. RDF statistics
+
+| Thành phần | Số lượng |
+|---|---:|
+| Total RDF triples | 2,646 |
+| OWL Classes | 1,262 |
+| `rdfs:subClassOf` | 1,256 |
+| OWL Annotation Properties | 18 |
+| OWL Named Individuals | 6 |
+| OWL Object Properties | 0 |
+| OWL Datatype Properties | 0 |
+| Blank nodes | 0 |
+| Taxonomy cycles | 0 |
+| Multiple inheritance | 0 |
+| Undeclared class references | 0 |
+
+**SHA-256:**
+
+`2f7083f9fc1758edfadd45bf3b721661c585f1c2d3c750d509d94af78976aa73`
+
+### 3.2. Cấu trúc taxonomy
+
+| Root class | Descendants | Độ sâu khảo sát |
+|---|---:|---:|
+| `plantae_family` | 699 | 3 |
+| `effect` | 165 | 3 |
+| `metabolite` | 161 | 4 |
+| `distribution` | 136 | 6 |
+| `fungi_kingdom` | 95 | 6 |
+| `morphology` | 0 | 0 |
+
+Ontology có 6 root classes, tạo thành cấu trúc forest theo các kết quả kiểm tra.
+
+### 3.3. Những phát hiện quan trọng
+
+- `plantae_family` có 410 lớp con trực tiếp.
+- `euphorbiaceae` có 287 lớp con trực tiếp, gồm các tên chi thực vật như `acalypha`, `aleurites`.
+- `province` có 63 lớp con trực tiếp.
+- Chỉ 16/1.262 classes có `rdfs:label`.
+- 6 Named Individuals: `alpha-amyrin`, `beta-amyrin`, `ellagic_acid`, `euphorbianin`, `rutin`, `taraxerol`.
+- Có một phát biểu `has_herb`: `Hau_Giang → euphorbia_hira`.
+- `has_herb` không được khai báo là `owl:ObjectProperty` trong kết quả phân tích.
+
+**Kết luận:** VHO chủ yếu là ontology phân cấp (taxonomy), không phải knowledge graph thực thể–quan hệ đầy đủ.
+
+## 4. Quyết định kiến trúc
+
+Định hướng thiết kế hai tầng:
+
+**Layer 1 — RDF-faithful Knowledge Graph**
+- Bảo toàn RDF triples, IRI, kiểu dữ liệu và annotation.
+- Bảo toàn `rdfs:subClassOf`, `rdf:type`.
+- Có provenance, SHA-256, validation và idempotent import.
+- Không tự ý chuyển OWL Classes thành Individuals.
+
+**Layer 2 — Semantic Retrieval Graph**
+- Xây dựng các quan hệ phục vụ GraphRAG sau khi xác minh ngữ nghĩa.
+- Phân biệt dữ liệu gốc, suy diễn và dữ liệu bổ sung.
+- Không tự tạo quan hệ cây thuốc–hợp chất–tác dụng khi chưa có bằng chứng.
+
+Đây là **định hướng kiến trúc**, chưa phải implementation đã được nghiệm thu.
+
+## 5. Trạng thái Codex
+
+Codex từng được yêu cầu triển khai trước khi Neo4j DBMS được cấu hình.
+
+Sau đó người dùng đã yêu cầu Codex dừng. Theo thông tin người dùng cung cấp, Codex đã hoàn thiện một số phần chưa cần kết nối Neo4j.
+
+**Chưa xác minh:** Danh sách file đã sửa, kết quả test, commit, trạng thái importer và các quyết định kỹ thuật từ phiên Codex trước.
+
+Không được mặc định các phần này
