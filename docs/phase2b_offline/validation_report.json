@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "expectedTriples": 2646,
+  "exportRows": 2646,
+  "decodedTriples": 2646,
+  "missing": 0,
+  "extra": 0,
+  "mismatch": 0,
+  "errors": [],
+  "missingRecords": [],
+  "extraRecords": [],
+  "fingerprint": "4b9cb2aad5a74deff593377b072804fd0faa78301cc0c1cdccbc8cc0b35375f4",
+  "mode": "offline",
+  "acceptance": {
+    "sha256": true,
+    "triples": true,
+    "roots": true,
+    "iriTerms": true,
+    "literalTerms": true,
+    "strictRoundtrip": true,
+    "serializedRoundtrip": true
+  },
+  "iriTerms": 1288,
+  "uniqueLiteralTerms": 97,
+  "roots": [
+    "http://www.semanticweb.org/metruoi/ontologies/2017/2/VHO#distribution",
+    "http://www.semanticweb.org/metruoi/ontologies/2017/2/VHO#effect",
+    "http://www.semanticweb.org/metruoi/ontologies/2017/2/VHO#fungi_kingdom",
+    "http://www.semanticweb.org/metruoi/ontologies/2017/2/VHO#metabolite",
+    "http://www.semanticweb.org/metruoi/ontologies/2017/2/VHO#morphology",
+    "http://www.semanticweb.org/metruoi/ontologies/2017/2/VHO#plantae_family"
+  ],
+  "sourceSha256": "2f7083f9fc1758edfadd45bf3b721661c585f1c2d3c750d509d94af78976aa73",
+  "serializedRoundtrip": true,
+  "wallSeconds": 4.085008299996844,
+  "dbWriteSeconds": "not_measured",
+  "peakMemory": "not_measured",
+  "databaseOperations": false
+}

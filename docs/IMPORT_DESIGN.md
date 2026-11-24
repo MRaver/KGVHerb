@@ -1,5 +1,7 @@
 # Thiết kế importer RDF/OWL → Neo4j cho Vietherb
 
+> Cập nhật Phase 2B (2026-11-15): phần thiết kế gốc bên dưới được giữ để audit. Implementation hiện dùng byte-backed ImportPlan và writer chỉ cho database explicit `vietherb-test`, không còn mặc định `neo4j` hoặc API loose graph+manifest. Xem [báo cáo Phase 2B](PHASE2B_IMPLEMENTATION.md) và [HANDOFF](HANDOFF.md) cho gates/lifecycle/coverage hiện tại. Chưa thực hiện integration testing thực tế.
+
 Ngày: 2026-11-15. Trạng thái: **đề xuất, chưa triển khai importer, chưa chạy Cypher**.
 
 ## 1. Phạm vi và bằng chứng

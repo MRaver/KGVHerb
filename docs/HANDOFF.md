@@ -1,6 +1,20 @@
 
 # Vietherb GraphRAG — Handoff
 
+## Phase 2B — current: blockers fixed offline, awaiting review
+
+- User manually verified Enterprise 2026.10.2; neo4j/system/vietherb-test ONLINE, test DB initially 0 nodes, five unique constraints provisioned. Agent did not connect or reverify server in this task.
+- Implemented all preflight P1/P2 code fixes: explicit test-only target and schema gates; byte-backed immutable ImportPlan; complete record/batch preflight; run/source/snapshot identity and edge-cardinality validation; run timestamps/versions/settings/code provenance; safe failure lifecycle; strict payload flags/counts/types. See [PHASE2B_IMPLEMENTATION.md](PHASE2B_IMPLEMENTATION.md) for finding-to-fix mapping and files changed.
+- API migration: replace loose `import_graph(...)` with `build_plan(...)` then `Neo4jWriter(driver, database='vietherb-test', enabled=True).import_plan(plan, run_id=...)`. Database has no default; neo4j/system/aliases or unknown targets fail closed. Writer disabled by default; no DDL or auto recovery.
+- Integration runner prepared at [integration_runner.py](../src/vietherb_ontology/integration_runner.py). Default explicitly tested offline with no driver construction. Real read-only/write modes are opt-in and **not run**; write mode additionally requires exact database confirmation and exclusive-writer acknowledgement. No delete/reset/DDL/cleanup behavior.
+- Final offline suite: **54 passed, 0 failures/errors, 28.069s, exit 0**; source/tests diagnostics: no errors found.
+- [Phase 2B dry-run](phase2b_offline/VALIDATION_REPORT.md): 2646 strict round-trip triples; 6 roots; 1288 IRI terms; 97 literals; missing/extra/mismatch=0/0/0; serialized round-trip pass. [Manifest](phase2b_offline/source_manifest.json) contains source/code hashes and settings. Original Phase 1 artifacts preserved.
+- SHA-256 unchanged: `2f7083f9fc1758edfadd45bf3b721661c585f1c2d3c750d509d94af78976aa73`.
+- No Neo4j connections/writes, database/constraint creation/deletion, ontology edits, commits or pushes. Temp/artifacts stayed on D. Existing unrelated untracked files preserved.
+- Concurrent external Git change observed at final check: branch Phase2-Preflight, HEAD c9d528b94d5ddf9a0276fdeb24946923b24991c4. Agent did not commit or switch branches. Dry-run manifest records that HEAD with clean worktree at capture time; subsequent report/handoff edits are dirty. All manifest code hashes rechecked: zero mismatches. External changes preserved.
+- Remaining empirical gate: test doubles cannot prove Neo4j rollback/query syntax/isolation; real probes and import/export/idempotency suite remain unexecuted. Single-writer only; no distributed lock or automatic FAILED/orphan recovery. Unknown commit outcomes require review. Detailed limitations and reproduction commands in Phase 2B report.
+- **Stop here awaiting review before any real integration testing.** Older preflight/design sections below are historical and superseded by this section.
+
 ## Phase 2 preflight — current review gate
 
 - Scope: steps 1–4 only. Read AGENTS, PROJECT_CONTEXT, IMPORT_DESIGN, HANDOFF, Phase 1 sources/tests and offline validation report. No source-code fixes or integration writes in this task.
