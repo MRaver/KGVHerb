@@ -1,0 +1,48 @@
+{
+  "byteCount": 420694,
+  "contentFingerprint": "4b9cb2aad5a74deff593377b072804fd0faa78301cc0c1cdccbc8cc0b35375f4",
+  "effectiveBaseIRI": "file:///D:/vietherb_rag/VHO.owl",
+  "format": "xml",
+  "graphScope": "default",
+  "importsFetched": false,
+  "inference": false,
+  "mappingVersion": "term-v1/triple-v1",
+  "normalization": false,
+  "parserPolicy": "rdfxml-no-normalize-no-imports-v1",
+  "path": "D:\\vietherb_rag\\VHO.owl",
+  "snapshotKey": "e8dda94cf2e78dcc52b23c832758a2c950f2929b10d6c739465900eb8681014d",
+  "sourceSha256": "2f7083f9fc1758edfadd45bf3b721661c585f1c2d3c750d509d94af78976aa73",
+  "createdUtc": "2026-11-15T16:55:39.224137+00:00",
+  "versions": {
+    "python": "3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]",
+    "rdflib": "7.6.0",
+    "neo4jDriver": "6.4.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "server": "not_measured"
+  },
+  "gitHead": "c9d528b94d5ddf9a0276fdeb24946923b24991c4",
+  "gitDirty": false,
+  "codeHashes": {
+    "src\\vietherb_ontology\\__init__.py": "9aa343d3a3fee7995eccd7de11c18e08ccdb98a1629672b2813a0dbeae1827af",
+    "src\\vietherb_ontology\\dry_run.py": "52e2d5875b69e1fff54c9b1fc2d4b70a7acee4ab6500df256909c3fa5f8d4255",
+    "src\\vietherb_ontology\\import_plan.py": "81194f524027a4744a7cc132920cb631a57bffdaa94d0e1445b2772eb81ff1c4",
+    "src\\vietherb_ontology\\integration_runner.py": "c76cc666955fe41c95909266efbd5422644355b0909ad4363dddcd1117d4a7b3",
+    "src\\vietherb_ontology\\inventory.py": "a36bc7773eecf42a81c9e8ebe1ffb3f5b155b44a68a885dac7e4396100030680",
+    "src\\vietherb_ontology\\neo4j_io.py": "ca05bf8dd280f6831ba2b140ad16b969f4238a3ce511b64fa82bb15094827370",
+    "src\\vietherb_ontology\\pipeline.py": "bac4d76f6e0867d96e23121b9f49cdc13af2463276a37a2a40566c76879c4885",
+    "src\\vietherb_ontology\\target.py": "b7209630664b5f04cadb8ea1eb0b09d997a3edcdbbe9924754ef6643f2b2a1f8",
+    "src\\vietherb_ontology\\writer.py": "cbd5e4d1d1a95337caa2b977c1bbf313f410d1e36a7028c36c33b7f2fba487d2",
+    "tests\\test_blockers.py": "bf9c05758d91f3af0daa34b5c2597a8dfee9aec3d0c221eee5e357c206644a85",
+    "tests\\test_inventory.py": "ad3c811e4ae481b86efd946a351453035fc5cb3b8a1b94fab9856a996253867e",
+    "tests\\test_pipeline.py": "c7c68f702c3f7076f4318ecc0c8a6300d0abd1d8df74a69a04dcd4f8133f8f57"
+  },
+  "settings": {
+    "maxRows": 500,
+    "maxBytes": 4194304,
+    "databaseOperations": false
+  },
+  "batches": {
+    "terms": 3,
+    "triples": 6
+  }
+}
